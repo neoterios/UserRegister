@@ -9,16 +9,11 @@ import java.util.Date;
 import java.util.Set;
 import java.util.UUID;
 
+//@Getter
+//@Setter
 @Entity
 @Table(name = "usuarios")
-public class Usuario implements Serializable {
-    /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
-    private int id;
-
-     */
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -47,20 +42,15 @@ public class Usuario implements Serializable {
     private String token;
 
     @OneToMany(mappedBy = "id",  cascade=CascadeType.ALL)
-    private Set<Telefono> phones;
+    private Set<Phone> phones;
 
-
-
-
-    public Usuario() {
+    public User() {
     }
 
-    public Usuario(UUID id, String name, String email, String password, Date createdOn, Set<Telefono> telefonos) {
-        this.id = id;
+    public User(String name, String email, String password, Set<Phone> telefonos) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.createdOn = createdOn;
         this.phones = telefonos;
     }
 
@@ -104,19 +94,19 @@ public class Usuario implements Serializable {
         this.createdOn = createdOn;
     }
 
-    public Set<Telefono> getPhones() {
-        return phones;
-    }
-
-    public void setPhones(Set<Telefono> telefonos) {
-        this.phones = telefonos;
-    }
-
     public String getToken() {
         return token;
     }
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public Set<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(Set<Phone> phones) {
+        this.phones = phones;
     }
 }

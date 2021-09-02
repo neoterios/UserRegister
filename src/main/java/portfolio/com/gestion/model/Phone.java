@@ -1,15 +1,14 @@
 package portfolio.com.gestion.model;
 
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.UUID;
 
+//@Getter
+//@Setter
 @Entity
 @Table(name = "telefono")
-public class Telefono implements Serializable {
+public class Phone implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -27,17 +26,16 @@ public class Telefono implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="IdUsuario")
-    private Usuario usuario;
+    private User Idusuario;
 
-    public Telefono() {
+    public Phone() {
     }
 
-    public Telefono(int id, int number, int citycode, int contrycode, Usuario usuario) {
-        this.id = id;
+    public Phone(int number, int citycode, int contrycode, User usuario) {
         this.number = number;
         this.citycode = citycode;
         this.contrycode = contrycode;
-        this.usuario = usuario;
+        this.Idusuario = usuario;
     }
 
     public int getId() {
@@ -72,12 +70,12 @@ public class Telefono implements Serializable {
         this.contrycode = contrycode;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public User getIdusuario() {
+        return Idusuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setIdusuario(User usuario) {
+        this.Idusuario = usuario;
     }
 
     @Override
@@ -87,7 +85,7 @@ public class Telefono implements Serializable {
                 ", number=" + number +
                 ", citycode=" + citycode +
                 ", contrycode=" + contrycode +
-                ", usuario=" + usuario +
+                ", usuario=" + Idusuario +
                 '}';
     }
 }

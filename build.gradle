@@ -13,10 +13,16 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.projectlombok:lombok:1.18.20'
 	implementation 'com.10duke.client.jwt:jjwt:1.0.1'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.eclipse.ecf:org.json:1.0.0.v201011060100'
+	implementation "org.mapstruct:mapstruct:1.4.2.Final"
+	implementation 'io.ultreia.java4all:validation-api:1.0.0'
+	implementation 'org.everit.email:org.everit.email.javamail.ecm:2.0.1'
+	implementation 'hu.blackbelt.karaf.features:javax:1.0.2'
+	annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
     runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
