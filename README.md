@@ -1,7 +1,7 @@
 # UserRegister
 Registro de usuarios a traves de un endpoint post
 
-Comenzando 🚀
+### **Comenzando 🚀**
 
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
@@ -9,7 +9,7 @@ Pre-requisitos 📋
 
 Se requiere Java 8 instalado en el equipo para levantar el proyecto y Postman para realizar las solicitudes http.
 
-Instalación 🔧
+### **Instalación 🔧**
 
 Se debe descargar el proyecto o descargarlo desde el repositorio en la IDE a utilizar. Una vez descargado debe levantarse el servidor para ejecutar aplicaciones bajo Spring boot. Ejemplo anexo, la configuracion en IntellyJ:
 
@@ -31,7 +31,7 @@ Paso 4: Asegurarse de que haya sido seleccionada la opcion "Enable JMX agent"
 
 Finalmente, puede hacerse click sobre el boton ejecutar o debugg para iniciar o ejecutar en modo debug el proyecto.
 
-Construido con 🛠️
+### **Construido con 🛠️**
 
 Para la construccion del proyecto se utilizo:
 
@@ -40,7 +40,15 @@ Para la construccion del proyecto se utilizo:
 * H2: motor de base de datos integrado de Spring Boot usado para el ambiente de desarrollo
 * Postman: para la invocacion de los servicios
 
-Ejecucion ⚙
+Diagrama de secuencia del proyecto:
+
+![Sequence Diagram](documentation/files/sequence_diagram.png)
+
+Componentes y clases del proyecto:
+
+![Componentes](documentation/files/componentes.png)
+
+### **Ejecucion ⚙**
 
 Este proyecto consta de un endpoint para el registro de usuarios, cuyos datos deben ser proporcionados mediante un Json con los siguientes datos:
 
@@ -86,9 +94,6 @@ Ejemplo:
 
 [registrarUsuario] {"mensaje": "El usuario con el correo electronico juan@rodriguezz.cl ya existe"}
 
-
-
-
-Autores ✒️
+### **Autores ✒**️
 
  * **Ruben Caicedo** - _Desarrollo y documentacion_
