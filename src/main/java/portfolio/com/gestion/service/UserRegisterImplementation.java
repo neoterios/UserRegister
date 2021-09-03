@@ -34,15 +34,15 @@ public class UserRegisterImplementation implements UserRegisterService {
     public ResponseEntity<?> registrarUsuario(UserPostDto userPostDto) {
 
         if(!Utilities.validadorCorreo(userPostDto.getEmail())){
-            log.error(String.format("[registrarUsuario] %s ", SystemMessages.BAD_FORMAT_EMAIL.toString()));
+            log.error(String.format("[registrarUsuario] %s ", String.format(SystemMessages.BAD_FORMAT_EMAIL.toString(), userPostDto.getEmail())));
             return new ResponseEntity<String>(String.format(SystemMessages.BAD_FORMAT_EMAIL.toString(), userPostDto.getEmail())
-                    , HttpStatus.OK);
+                    , HttpStatus.BAD_REQUEST);
         }
 
         if(!Utilities.validadorPassword(userPostDto.getPassword())){
             log.error(String.format("[registrarUsuario] %s ", SystemMessages.BAD_FORMAT_PASSWORDS.toString()));
             return new ResponseEntity<String>(String.format(SystemMessages.BAD_FORMAT_PASSWORDS.toString())
-                    , HttpStatus.OK);
+                    , HttpStatus.BAD_REQUEST);
         }
 
         User usuario = portfolioMapper.userPostDtoToUser(userPostDto);
@@ -51,8 +51,8 @@ public class UserRegisterImplementation implements UserRegisterService {
         try{
             usuario = usuarioRepository.save(usuario);
         }catch (Exception e){
-            log.error(String.format("[registrarUsuario] %s ", SystemMessages.EXISTING_EMAIL.toString()));
-            return new ResponseEntity<String>(String.format(SystemMessages.EXISTING_EMAIL.toString(), usuario.getEmail()), HttpStatus.OK);
+            log.error(String.format("[registrarUsuario] %s ", String.format(SystemMessages.EXISTING_EMAIL.toString(), usuario.getEmail())));
+            return new ResponseEntity<String>(String.format(SystemMessages.EXISTING_EMAIL.toString(), usuario.getEmail()), HttpStatus.CONFLICT);
         }
 
         log.info(String.format("[registrarUsuario] Usuario ingresado satisfactoriamente; ID:  %s ", usuario.getId() ));
